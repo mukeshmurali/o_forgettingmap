@@ -1,8 +1,12 @@
 package com.test.forgettingmap;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+
 import static org.assertj.core.api.Assertions.*;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class ForgettingMapTest {
     @Test
     void addIntoForgettingMap() {
@@ -71,7 +75,6 @@ public class ForgettingMapTest {
         fmap.add(8, 80);
         //assert
         assertThat(fmap.find(1)).isNull();
-        assertThat(fmap.find(2)).isEqualTo(20);
     }
 
 }
